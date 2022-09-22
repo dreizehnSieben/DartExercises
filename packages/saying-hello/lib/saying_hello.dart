@@ -1,13 +1,28 @@
 import 'dart:io';
 import 'package:maybe/maybe.dart';
 
-class Program {
-  Maybe<String> readNameSync() {
-    stdout.write('What is your name? ');
-    var answer = stdin.readLineSync();
+extension MaybeNullableString on String? {
+  Maybe<String> toMaybe() {
+    return this != null && (this as String).isNotEmpty
+        ? Maybe.just(this as String)
+        : Maybe<String>.nothing();
+  }
+}
 
-    return answer != null && answer.isEmpty
-        ? Maybe<String>.nothing()
-        : Maybe.just(answer as String);
+class Program {
+  static void run() {
+    Maybe<String> name = Maybe.nothing();
+
+    do {
+      stdout.write('What is our name? ');
+      name = stdin.readLineSync().toMaybe();
+
+      name.match(onJust: (value) {
+        var greeting = 'Hello, $value, nice to meet you!';
+        print(greeting);
+      }, onNothing: () {
+        print('Please tell me your name.');
+      });
+    } while (name.isNothing);
   }
 }
