@@ -1,16 +1,2 @@
-# 1 - Saying Hello
-
-The "Hello, World" program is the first program you learn to write in many languages,
-but it doesn't involve any input.
-
-So create a program that prompts for your and prints a greeting using a name.
-
-## Example Output
-
-```
-What is your name? Brian
-Hello, Brian, nice to meet you!
-```
-
-## Constraint
-- Keep the input, string concatenation, and output separate.
+A sample command-line application with an entrypoint in `bin/`, library code
+in `lib/`, and example unit test in `test/`.
