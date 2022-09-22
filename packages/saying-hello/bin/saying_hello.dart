@@ -1,5 +1,19 @@
-import 'package:saying_hello/saying_hello.dart' as saying_hello;
+import 'package:maybe/maybe.dart';
+import 'package:saying_hello/saying_hello.dart';
 
-void main(List<String> arguments) {
-  print('Hello world: ${saying_hello.calculate()}!');
+void main() {
+  Maybe<String> name = Maybe.nothing();
+  var prg = Program();
+
+  do {
+    name = prg.readNameSync();
+
+    name.match(onJust: (value) {
+      var greeting = 'Hello, $value, nice to meet you!';
+
+      print(greeting);
+    }, onNothing: () {
+      print('Please tell me your name.');
+    });
+  } while (name.isNothing);
 }
