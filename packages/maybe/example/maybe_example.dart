@@ -1,6 +1,11 @@
 import 'package:maybe/maybe.dart';
 
 void main() {
-  var awesome = Awesome();
-  print('awesome: ${awesome.isAwesome}');
+  const just = Maybe.just('Awesome!');
+
+  just.match(
+      onJust: print,
+      onNothing: () {
+        print('nothing to show');
+      });
 }
