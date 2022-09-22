@@ -134,6 +134,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.12.12"
+  maybe:
+    dependency: "direct main"
+    description:
+      path: "../maybe"
+      relative: true
+    source: path
+    version: "1.0.0"
   meta:
     dependency: transitive
     description:
