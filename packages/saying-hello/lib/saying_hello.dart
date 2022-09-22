@@ -14,7 +14,7 @@ class Program {
     Maybe<String> name = Maybe.nothing();
 
     do {
-      stdout.write('What is our name? ');
+      stdout.write('What is your name? ');
       name = stdin.readLineSync().toMaybe();
 
       name.match(onJust: (value) {
