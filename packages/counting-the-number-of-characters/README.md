@@ -13,6 +13,6 @@ Homer has 5 Characters.
 ## Constraints
 
 - Be sure the output contains the original string
-- Use a single output statement to cnstruct the output.
+- Use a single output statement to construct the output.
 - Use a built-in function of the programming language to
   determine the length of the string.
