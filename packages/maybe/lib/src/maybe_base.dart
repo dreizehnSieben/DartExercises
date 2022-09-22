@@ -42,3 +42,11 @@ class _Nothing<A> extends Maybe<A> {
           {required B Function(A a) onJust, required B Function() onNothing}) =>
       onNothing();
 }
+
+extension MaybeStringNullable on String? {
+  Maybe<String> toMaybe() {
+    return this != null && (this as String).isNotEmpty
+        ? Maybe.just(this as String)
+        : Maybe<String>.nothing();
+  }
+}

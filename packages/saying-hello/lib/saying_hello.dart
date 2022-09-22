@@ -1,14 +1,6 @@
 import 'dart:io';
 import 'package:maybe/maybe.dart';
 
-extension MaybeNullableString on String? {
-  Maybe<String> toMaybe() {
-    return this != null && (this as String).isNotEmpty
-        ? Maybe.just(this as String)
-        : Maybe<String>.nothing();
-  }
-}
-
 class Program {
   static void run() {
     Maybe<String> name = Maybe.nothing();
