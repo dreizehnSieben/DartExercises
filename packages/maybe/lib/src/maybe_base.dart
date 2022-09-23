@@ -9,6 +9,8 @@ abstract class Maybe<A> {
 
   B match<B>(
       {required B Function(A a) onJust, required B Function() onNothing});
+
+  A withDefault(A defaultValue);
 }
 
 class _Just<A> extends Maybe<A> {
@@ -26,6 +28,9 @@ class _Just<A> extends Maybe<A> {
   B match<B>(
           {required B Function(A a) onJust, required B Function() onNothing}) =>
       onJust(_value);
+
+  @override
+  A withDefault(A defaultValue) => _value;
 }
 
 class _Nothing<A> extends Maybe<A> {
@@ -41,6 +46,9 @@ class _Nothing<A> extends Maybe<A> {
   B match<B>(
           {required B Function(A a) onJust, required B Function() onNothing}) =>
       onNothing();
+
+  @override
+  A withDefault(A defaultValue) => defaultValue;
 }
 
 extension MaybeStringNullable on String? {

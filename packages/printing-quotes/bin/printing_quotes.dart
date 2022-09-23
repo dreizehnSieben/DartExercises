@@ -1,5 +1,5 @@
-import 'package:printing_quotes/printing_quotes.dart' as printing_quotes;
+import 'package:printing_quotes/printing_quotes.dart';
 
-void main(List<String> arguments) {
-  print('Hello world: ${printing_quotes.calculate()}!');
+void main() {
+  Program.run();
 }
