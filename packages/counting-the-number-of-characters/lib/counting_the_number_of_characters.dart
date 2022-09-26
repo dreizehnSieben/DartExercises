@@ -1,20 +1,9 @@
-import 'dart:io';
-
-import 'package:maybe/maybe.dart';
+import 'package:user_io/user_io.dart';
 
 class Program {
   static run() {
-    Maybe<String> input = Maybe.nothing();
-
-    do {
-      stdout.write('What is the input string? ');
-      input = stdin.readLineSync().toMaybe();
-
-      input.match(onJust: (value) {
-        print('$value has ${value.length} characters.');
-      }, onNothing: () {
-        print('Please give some input string.');
-      });
-    } while (input.isNothing);
+    var input = userio.readInputSync(
+        'What is the input string? ', 'Please give me some input.');
+    print('$input has ${input.length} characters.');
   }
 }

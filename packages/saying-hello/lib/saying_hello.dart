@@ -1,20 +1,11 @@
-import 'dart:io';
-import 'package:maybe/maybe.dart';
+import 'package:user_io/user_io.dart';
 
 class Program {
   static void run() {
-    Maybe<String> name = Maybe.nothing();
-
-    do {
-      stdout.write('What is your name? ');
-      name = stdin.readLineSync().toMaybe();
-
-      name.match(onJust: (value) {
-        var greeting = 'Hello, $value, nice to meet you!';
-        print(greeting);
-      }, onNothing: () {
-        print('Please tell me your name.');
-      });
-    } while (name.isNothing);
+    var name =
+        userio.readInputSync('What is your name? ', 'Please give me a name.');
+    // ignore: prefer_interpolation_to_compose_strings
+    var greeting = 'Hello, ' + name + ', nice to meet you!';
+    print(greeting);
   }
 }
