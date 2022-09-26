@@ -15,3 +15,5 @@ dev_dependencies:
 dependencies:
   maybe:
     path: ../maybe
+  user_io:
+    path: ../user_io
