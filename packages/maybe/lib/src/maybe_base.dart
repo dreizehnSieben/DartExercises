@@ -52,9 +52,13 @@ class _Nothing<A> extends Maybe<A> {
 }
 
 extension MaybeStringNullable on String? {
-  Maybe<String> toMaybe() {
-    return this != null && (this as String).isNotEmpty
-        ? Maybe.just(this as String)
-        : Maybe<String>.nothing();
-  }
+  Maybe<String> toMaybe() => this != null && (this as String).isNotEmpty
+      ? Maybe.just(this as String)
+      : Maybe<String>.nothing();
+}
+
+extension MaybeNumNullable on num? {
+  Maybe<num> toMaybe() => this != null && !(this as num).isNaN
+      ? Maybe.just(this as num)
+      : Maybe.nothing();
 }

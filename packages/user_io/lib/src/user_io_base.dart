@@ -16,6 +16,21 @@ class UserIO {
 
     return input.withDefault('');
   }
+
+  num readNumberSync(String prompt, String imp) {
+    Maybe<num> parsed = Maybe.nothing();
+
+    do {
+      var input = readInputSync(prompt, imp);
+      parsed = num.tryParse(input).toMaybe();
+
+      if (parsed.isNothing) {
+        print("Input is not a number.");
+      }
+    } while (parsed.isNothing);
+
+    return parsed.withDefault(0.0);
+  }
 }
 
 UserIO get userio => UserIO();
