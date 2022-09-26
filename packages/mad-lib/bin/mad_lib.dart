@@ -1,5 +1,5 @@
-import 'package:mad_lib/mad_lib.dart' as mad_lib;
+import 'package:mad_lib/mad_lib.dart';
 
-void main(List<String> arguments) {
-  print('Hello world: ${mad_lib.calculate()}!');
+void main() {
+  Program.run();
 }
