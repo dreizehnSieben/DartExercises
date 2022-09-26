@@ -3,22 +3,22 @@ import 'package:test/test.dart';
 
 void main() {
   test('maybe.just("hi") is Just', () {
-    const a = Maybe.just('hi');
+    final a = Maybe.just('hi');
 
     expect(a.isJust, isTrue);
     expect(a.isNothing, isFalse);
   });
 
   test('maybe nothing is Nothing', () {
-    const a = Maybe<String>.nothing();
+    final a = Maybe<String>.nothing();
 
     expect(a.isNothing, isTrue);
     expect(a.isJust, isFalse);
   });
 
   test('.match()', () {
-    const just = Maybe.just('Hello');
-    const nothing = Maybe<String>.nothing();
+    final just = Maybe.just('Hello');
+    final nothing = Maybe<String>.nothing();
 
     String id(String value) {
       return value;
