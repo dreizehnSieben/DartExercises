@@ -135,7 +135,7 @@ packages:
     source: hosted
     version: "0.12.12"
   maybe:
-    dependency: "direct main"
+    dependency: transitive
     description:
       path: "../maybe"
       relative: true
