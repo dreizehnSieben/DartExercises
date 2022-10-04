@@ -31,6 +31,11 @@ class UserIO {
 
     return parsed.withDefault(0.0);
   }
+
+  int readIntegerSync(String prompt, String imp) {
+    var input = readNumberSync(prompt, imp);
+    return input.toInt();
+  }
 }
 
 UserIO get userio => UserIO();
